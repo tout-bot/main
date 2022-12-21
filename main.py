@@ -10,6 +10,6 @@ async def on_ready():
 #if ur not going to add commands then remove this
 @client.event
 async def on_message(message):
-    # Ignore messages from the bot itself
+    #it checks if the bot itself sent the message and will ignore it
     if message.author == client.user:
         return
