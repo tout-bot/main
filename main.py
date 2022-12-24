@@ -1,25 +1,29 @@
 import discord
 import requests
 
-client = discord.Client()
+intents = discord.Intents.all()
 
-@client.event
-async def on_ready():
-    print(f'Successfully logged in as {client.user}')
 
-#if ur not going to add commands then remove this
-@client.event
-async def on_message(message):
-    #it checks if the bot itself sent the message and will ignore it
-    if message.author == client.user:
-        return
-
+client = discord.Client(intents=intents)
 url = ('https://newsapi.org/v2/everything?'
        'q=Apple&'
        'from=2022-12-21&'
        'sortBy=popularity&'
-       'apiKey=API_KEY')
-
+       'apiKey=8d6ea510869b4a1aad5211ddfbb3873d')
 response = requests.get(url)
+data = response.json()
+for article in data['articles']:
+            embed = discord.Embed(title=article['title'], description=article['description'])
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
 
-print r.json
+    if message.content == '$help':
+        await message.channel.send('Work for now')
+    elif message.content == '$news':
+         await message.channel.send(embed=embed)
+
+
+
+client.run("")
