@@ -20,7 +20,7 @@ async def on_message(message):
         return
 
     if message.content == '$help':
-        await message.channel.send('Work for now')
+        await message.channel.send('In dev for now.')
     elif message.content == '$news':
          await message.channel.send(embed=embed)
 
