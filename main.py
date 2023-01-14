@@ -9,7 +9,7 @@ url = ('https://newsapi.org/v2/everything?'
        'q=Apple&'
        'from=2022-12-21&'
        'sortBy=popularity&'
-       'apiKey=8d6ea510869b4a1aad5211ddfbb3873d')
+       'apiKey=keyhere')
 response = requests.get(url)
 data = response.json()
 for article in data['articles']:
@@ -26,4 +26,4 @@ async def on_message(message):
 
 
 
-client.run("")
+client.run("tokenhere")
